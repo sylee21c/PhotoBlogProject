@@ -1,0 +1,43 @@
+{
+  "report_file": "모웹프_공통평가01_2021105625이시윤.docx",
+  "pages": 22,
+  "inspected_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22
+  ],
+  "layout_issues": [],
+  "reviewed_utc": "2026-10-20T08:22:09.695153+00:00",
+  "supplied_template_preserved": true,
+  "method": "Microsoft Word native Page.EnhMetaFileBits rendered to PNG at 144 DPI",
+  "docx_sha256": "450922d2e4d5492529d7a8473ba9cd3d5cf0072cc9d9ff171209cded7ca12bd4",
+  "inline_image_occurrences": 24,
+  "unique_visible_images": 23,
+  "preserved_package_media_files": 27,
+  "all_source_media_preserved": true,
+  "user_added_captures_in_correct_sections": true,
+  "middle_dots_in_document_text": 0,
+  "remaining_submission_steps": [
+    "API response capture with browser address bar",
+    "GitHub URL and push"
+  ]
+}

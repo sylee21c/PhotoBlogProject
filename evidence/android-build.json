@@ -1,0 +1,8 @@
+{
+  "verified_utc": "2026-10-20T07:30:23.570923+00:00",
+  "version": "1.2",
+  "tests": 9,
+  "failures": 0,
+  "apk_sha256": "8bf9775e8a4b50290cad5ab8ffba6451840113d21b9630fad2668846adddc777",
+  "source_sha256": "5e1083f816a5e41cf1ca0b0368f69b52152bb8902a5b34fd9b2bc427333f80dc"
+}

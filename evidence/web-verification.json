@@ -1,0 +1,10 @@
+{
+  "server": "http://127.0.0.1:8000/",
+  "postUrl": "http://127.0.0.1:8000/post/37/",
+  "webPostCreated": true,
+  "webEditPersisted": true,
+  "webDeleteCancelled": true,
+  "screenshotsIncludeBrowserChrome": false,
+  "previous_post_url": "http://127.0.0.1:8000/post/33/",
+  "current_capture": "Sample photo detail view after copy and photo refresh"
+}

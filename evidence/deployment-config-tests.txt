@@ -1,0 +1,9 @@
+test_bad_domain_creates_no_private_configuration (__main__.CloudConfigurationTests.test_bad_domain_creates_no_private_configuration) ... ok
+test_private_wsgi_is_valid_and_does_not_embed_secret (__main__.CloudConfigurationTests.test_private_wsgi_is_valid_and_does_not_embed_secret) ... ok
+test_rerun_retains_secret_and_can_update_domain (__main__.CloudConfigurationTests.test_rerun_retains_secret_and_can_update_domain) ... ok
+test_wrong_project_root_is_rejected (__main__.CloudConfigurationTests.test_wrong_project_root_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.040s
+
+OK

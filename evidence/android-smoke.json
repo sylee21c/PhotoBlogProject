@@ -1,0 +1,12 @@
+{
+  "start": true,
+  "sync": true,
+  "login": true,
+  "favorites": true,
+  "socket_get_post": true,
+  "upload_verified": true,
+  "system_picker": true,
+  "search": true,
+  "uploaded_post_id": 51,
+  "version": "1.2"
+}

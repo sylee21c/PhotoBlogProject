@@ -1,0 +1,10 @@
+{
+  "url": "http://127.0.0.1:8000/api_root/Post/?q=API%20POST%20assessment",
+  "method": "POST",
+  "status": 201,
+  "persisted": true,
+  "postIds": [
+    34
+  ],
+  "screenshotsIncludeBrowserChrome": false
+}

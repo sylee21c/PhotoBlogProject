@@ -1,0 +1,17 @@
+[
+  {
+    "file": "mountain-lake.jpg",
+    "bytes": 398013,
+    "sha256": "b4b2515bcc2cda0850bf7ec784f1a65e8071e52a998bff95b43b256d26e3b1fc"
+  },
+  {
+    "file": "beach.jpg",
+    "bytes": 316819,
+    "sha256": "3073bc069b15919f3dfadeaef415945a52c75898567f185217b8e0e68bebee98"
+  },
+  {
+    "file": "lake-dock.jpg",
+    "bytes": 584869,
+    "sha256": "865344cca96cf0d5f4a254d2e3d85eb9367c227ec2bbadf9682a8e1b7d9c707f"
+  }
+]

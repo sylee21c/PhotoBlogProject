@@ -1,0 +1,39 @@
+{
+  "checked_utc": "2026-10-20T07:40:35.849398+00:00",
+  "local_checks": {
+    "required_layout": true,
+    "server_tests_passed": true,
+    "android_tests_passed": true,
+    "apk_matches_build": true,
+    "android_sources_match_build": true,
+    "device_regressions_passed": true,
+    "actual_capture_files_present": true,
+    "report_contains_extended_captures": true,
+    "report_layout_review_matches_file": true,
+    "browsable_api_post_verified": true,
+    "actual_http_exchange_verified": true,
+    "private_deploy_configuration_tests": true,
+    "private_files_ignored": true,
+    "git_inventory_readable": true,
+    "demo_credentials_absent_from_publishable_text": true
+  },
+  "server_tests": {
+    "tests": 48,
+    "failures": 0,
+    "errors": 0,
+    "coverage_percent": 90.75
+  },
+  "android_tests": 9,
+  "report_embedded_images": 24,
+  "cloud_deployment_verified": true,
+  "cloud_domain": "https://blackponge.pythonanywhere.com",
+  "credential_leak_files": [],
+  "remaining_manual_or_account_steps": [
+    "주소창 포함 브라우저, 탐색기 구조, 터미널 API, VS Code 수신 파일 최종 캡처",
+    "보고서 학번·이름 및 GitHub URL 입력",
+    "본인 GitHub 원격 저장소 연결 및 push"
+  ],
+  "all_local_checks_passed": true,
+  "ready_to_submit": false,
+  "readiness_note": "See remaining_manual_or_account_steps for unfinished submission work. Personal report fields are intentionally blank at user request."
+}

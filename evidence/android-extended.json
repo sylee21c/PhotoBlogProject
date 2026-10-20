@@ -1,0 +1,18 @@
+{
+  "encrypted_token": true,
+  "password_not_stored": true,
+  "last_verified_utc": "2026-10-20T07:21:01.705157+00:00",
+  "pagination_first": 12,
+  "pagination_total": 13,
+  "pagination_second": 13,
+  "owner_edit": true,
+  "delete_cancel_preserves": true,
+  "owner_delete": true,
+  "draft_process_restart": true,
+  "draft_image_permission_retained": true,
+  "restored_draft_upload": true,
+  "offline_process_restart": true,
+  "offline_photo_decoded": true,
+  "favorite_persisted": true,
+  "offline_sync_retains_feed": true
+}

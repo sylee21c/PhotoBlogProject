@@ -1,0 +1,76 @@
+{
+  "verified_at": "2026-10-20T07:40:42.689181+00:00",
+  "domain": "https://blackponge.pythonanywhere.com",
+  "health": {
+    "status": "ok",
+    "service": "PhotoBlog",
+    "posts": 3
+  },
+  "posts": 3,
+  "cloud_photo": {
+    "id": 3,
+    "author": 1,
+    "author_name": "gallery_demo",
+    "title": "호수의 선착장",
+    "text": "해 질 무렵의 나무 선착장. 예시 사진: Pok Rie / Pexels.",
+    "created_date": "2026-10-20T16:15:10.437401+09:00",
+    "published_date": "2026-10-20T16:15:10.437408+09:00",
+    "image": "https://blackponge.pythonanywhere.com/media/photos/2026/10/c7aaa63800e34f28b1fdcd30885bfa8e.jpg"
+  },
+  "checks": [
+    {
+      "path": "/",
+      "method": "GET",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 2007,
+      "sha256": "c9dbf286fd24f50e3ba11712de6838fca933a524d2734eb57bf5f524ca030706"
+    },
+    {
+      "path": "/api/health/",
+      "method": "GET",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 52,
+      "sha256": "f979e3f77acf518f3db83eb8ada0ee9c64637e407b1702f4e7cb1a2e3cfa8ad2"
+    },
+    {
+      "path": "/api_root/Post/",
+      "method": "GET",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 1068,
+      "sha256": "b0bafbe8bd79a9900dc58cce7809beb42160fa87329762c7dcb45fceeb5d918a"
+    },
+    {
+      "path": "/media/photos/2026/10/c7aaa63800e34f28b1fdcd30885bfa8e.jpg",
+      "method": "GET",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "bytes": 584869,
+      "sha256": "865344cca96cf0d5f4a254d2e3d85eb9367c227ec2bbadf9682a8e1b7d9c707f"
+    },
+    {
+      "path": "/static/blog/site.css",
+      "method": "GET",
+      "status": 200,
+      "content_type": "text/css",
+      "bytes": 4083,
+      "sha256": "a250571011ffbeabb9a37b6acb99dbcdfacf178a287b87ba36dba33d552737b0"
+    },
+    {
+      "path": "/api_root/Post/",
+      "method": "POST",
+      "status": 401,
+      "content_type": "application/json",
+      "bytes": 69,
+      "sha256": "7779335ee611827a5dac09d448f8599a43c2d66a226e02da292b30a99977b8b8"
+    }
+  ],
+  "python": "3.13",
+  "debug": false,
+  "backup": "/home/blackponge/.photoblog-deploy-backups/20261020-065309",
+  "free_webapp_expiry": "2026-11-20",
+  "server_screenshot": "evidence/screenshots/12-server-cloud.png",
+  "sample_photo_sources": "PhotoBlogServer/demo_photos/sources.json"
+}

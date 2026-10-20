@@ -1,0 +1,6 @@
+GET /api_root/Post/ HTTP/1.1
+Host: 10.0.2.2:8001
+Accept: application/json
+Connection: close
+
+--- Body inspection ---

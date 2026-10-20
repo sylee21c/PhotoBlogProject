@@ -1,0 +1,11 @@
+POST /api_root/Post/ HTTP/1.1
+Host: 10.0.2.2:8001
+Accept: application/json
+Connection: close
+Content-Type: multipart/form-data; boundary=PhotoViewerd6f75b7fe8d0450ba63b24d42ebe624a
+Content-Length: 582
+
+--- Body inspection ---
+title: Socket 요청 검증
+text: Android multipart 전송 검증
+File field=image, name=socket-test.png, type=image/png, bytes=139, sha256=3c24dd9b3f6958e7ea27fb143c26b19a1c0427528a09e73e69e3ed2d35e4e296

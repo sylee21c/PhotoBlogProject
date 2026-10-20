@@ -1,0 +1,7 @@
+{
+  "verified_utc": "2026-10-20T08:07:03.767126+00:00",
+  "status": 200,
+  "post_count": 1,
+  "request_path": "/api_root/Post/?page=1&page_size=1",
+  "actual_terminal_screenshot": false
+}

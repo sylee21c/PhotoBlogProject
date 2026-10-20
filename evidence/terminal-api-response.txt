@@ -1,0 +1,35 @@
+REQUEST
+GET /api_root/Post/?page=1&page_size=1 HTTP/1.1
+Host: 127.0.0.1:8000
+Accept: application/json
+
+RESPONSE
+HTTP/1.1 200 OK
+Date: Tue, 20 Oct 2026 08:07:03 GMT
+Server: WSGIServer/0.2 CPython/3.13.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: DENY
+Content-Length: 403
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+Cross-Origin-Opener-Policy: same-origin
+
+{
+  "count": 6,
+  "next": "http://127.0.0.1:8000/api_root/Post/?page=2&page_size=1",
+  "previous": null,
+  "results": [
+    {
+      "id": 54,
+      "author": 1,
+      "author_name": "student",
+      "title": "midterm-upload",
+      "text": "API 사진 게시 테스트",
+      "created_date": "2026-10-20T17:06:20.501489+09:00",
+      "published_date": "2026-10-20T17:06:20.501491+09:00",
+      "image": "http://127.0.0.1:8000/media/photos/2026/10/b5d58f36865049209d7aa46de1adb537.jpg"
+    }
+  ]
+}

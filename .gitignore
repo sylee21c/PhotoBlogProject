@@ -1,0 +1,17 @@
+.venv/
+.runtime/
+__pycache__/
+*.py[cod]
+.env
+db.sqlite3
+media/
+staticfiles/
+.coverage*
+!.coveragerc
+.gradle/
+**/build/
+local.properties
+*.iml
+.idea/
+*.log
+PhotoViewer/app/src/main/assets/demo-credentials.json
