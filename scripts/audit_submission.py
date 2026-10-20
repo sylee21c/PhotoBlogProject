@@ -1,4 +1,4 @@
-"""Read-only submission checks; external deployment remains explicitly pending.
+"""Check saved submission evidence and the locally known GitHub report version.
 
 Optionally records an already-built APK and JUnit results from --android-build-root.
 Uses Python's standard library; does not install packages or contact a server.
@@ -50,8 +50,11 @@ def main():
         (ROOT/'evidence/android-build.json').write_text(json.dumps(receipt,indent=2),encoding='utf-8')
 
     checks={}
+    reports=[p for p in ROOT.glob('*.docx') if not p.name.startswith('~$')]
+    if len(reports)!=1:raise RuntimeError('Expected exactly one final report DOCX in the repository root')
+    report_path=reports[0]
     required=['PhotoBlogServer/manage.py','PhotoViewer/app/src/main/java/com/example/photoviewer/MainActivity.java',
-              '모바일웹서비스 프로젝트_공통평가 01_수행 결과 보고서.docx','artifacts/PhotoViewer-debug.apk']
+              report_path.name,'artifacts/PhotoViewer-debug.apk']
     checks['required_layout']=all((ROOT/p).is_file() for p in required)
     python=json.loads((ROOT/'evidence/test-summary.json').read_text())
     checks['server_tests_passed']=python['tests']>=48 and python['failures']==python['errors']==0
@@ -69,14 +72,20 @@ def main():
                     '14-pagination-first','14-pagination-complete','14-owner-edit','14-delete-confirm',
                     '14-draft-restored','14-offline-photo','14-offline-retry']
     checks['actual_capture_files_present']=all((ROOT/'evidence/screenshots'/f'{p}.png').is_file() for p in required_shots)
-    with ZipFile(ROOT/required[2]) as doc:
-        embedded=len([p for p in doc.namelist() if p.startswith('word/media/assessment-')])
+    with ZipFile(report_path) as doc:
+        embedded=len([p for p in doc.namelist() if p.startswith('word/media/')])
+        report_xml=ET.fromstring(doc.read('word/document.xml'))
+        report_text=''.join(report_xml.itertext())
     checks['report_contains_extended_captures']=embedded>=22
     layout_path=ROOT/'evidence/report-layout.json'
-    layout=json.loads(layout_path.read_text()) if layout_path.exists() else {}
+    layout=json.loads(layout_path.read_text(encoding='utf-8')) if layout_path.exists() else {}
     pages=layout.get('pages',0)
     checks['report_layout_review_matches_file']=(layout.get('docx_sha256')==digest(ROOT/required[2])
         and pages>=22 and layout.get('inspected_pages')==list(range(1,pages+1)) and layout.get('layout_issues')==[])
+    checks['required_native_captures_reviewed']=(checks['report_layout_review_matches_file']
+        and all(layout.get(k) is True for k in ['api_address_bar_capture_verified','folder_capture_verified',
+                                               'terminal_capture_verified','socket_editor_capture_verified']))
+    checks['five_separate_feature_ids']=all(f'증빙 14-{n}' in report_text for n in range(1,6)) and layout.get('server_client_counted_separately') is True
     api_browser=json.loads((ROOT/'evidence/api-browser-verification.json').read_text())
     checks['browsable_api_post_verified']=api_browser.get('status')==201 and api_browser.get('persisted') is True
     http=json.loads((ROOT/'evidence/http-verification.json').read_text())
@@ -109,17 +118,25 @@ def main():
     cloud_done=(cloud.get('domain')==cloud_android.get('server') and bool(cloud.get('domain'))
         and len(cloud.get('checks',[]))>=6 and cloud_android.get('cloud_url_visible') is True
         and all((ROOT/'evidence/screenshots'/name).is_file() for name in ['12-server-cloud.png','13-client-cloud-synced.png']))
-    pending=['주소창 포함 브라우저, 탐색기 구조, 터미널 API, VS Code 수신 파일 최종 캡처',
-             '보고서 학번·이름 및 GitHub URL 입력']
+    pending=[]
+    if not checks['required_native_captures_reviewed']:pending.append('지정 앱 캡처와 최종 보고서 배치 검토')
+    if not re.search(r'학번\s*:\s*\d+',report_text) or not re.search(r'이름\s*:\s*\S+',report_text):
+        pending.append('보고서 학번과 이름 입력')
+    if 'https://github.com/sylee21c/PhotoBlogProject' not in report_text:pending.append('보고서 GitHub URL 입력')
     if not cloud_done:pending.insert(0,'PythonAnywhere 실제 서버 배포 및 서버/Android 클라우드 캡처')
     if remote.returncode!=0:pending.append('본인 GitHub 원격 저장소 연결 및 push')
+    local_blob=git('hash-object','--',report_path.name)
+    remote_blob=git('rev-parse','origin/main:'+report_path.name)
+    report_pushed=(local_blob.returncode==remote_blob.returncode==0 and local_blob.stdout.strip()==remote_blob.stdout.strip())
+    if not report_pushed:pending.append('최종 보고서를 GitHub에 push')
     report={'checked_utc':datetime.now(timezone.utc).isoformat(),'local_checks':checks,
             'server_tests':python,'android_tests':android['tests'],'report_embedded_images':embedded,
             'cloud_deployment_verified':cloud_done,'cloud_domain':cloud.get('domain'),
             'credential_leak_files':leaked,'remaining_manual_or_account_steps':pending,
             'all_local_checks_passed':all(checks.values()),
-            'ready_to_submit':False,
-            'readiness_note':'See remaining_manual_or_account_steps for unfinished submission work. Personal report fields are intentionally blank at user request.'}
+            'report_file':report_path.name,'final_report_matches_origin_main':report_pushed,
+            'ready_to_submit':all(checks.values()) and cloud_done and not pending,
+            'readiness_note':'Checks cover recorded evidence and the report blob in the locally known origin/main. They do not submit the URL to the course portal.'}
     (ROOT/'evidence/submission-audit.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
     print(json.dumps({'local_checks_passed':sum(checks.values()),'local_checks_total':len(checks),
                       'server_tests':python['tests'],'android_tests':android['tests'],'embedded_images':embedded,

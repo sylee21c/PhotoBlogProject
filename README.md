@@ -82,7 +82,7 @@ powershell -ExecutionPolicy Bypass -File scripts/start-socket.ps1
 4. 업로드 초안 복원과 미리보기: 시스템 사진 선택·권한 유지, 사진 미리보기, 글자 수·형식·크기 검증, 앱 재실행 후 작성 이어가기.
 5. 연결·계정 관리: 서버 주소 변경·연결 확인·로그인·로그아웃, 서버에 결합한 토큰 암호화, 계정 ID를 기준으로 본인 관리 UI 표시.
 
-추가 개발의 사용 방법과 검증 시나리오는 `docs/FEATURES.md`에 있습니다. `scripts/verify_extended_android.py`는 전용 에뮬레이터와 로컬 데모 서버에서만 실행하는 회귀 검증용입니다. `--phase prepare`는 해당 에뮬레이터 앱 데이터를 초기화하고 `V2Fixture` 데모 게시글을 재생성하므로 개인 휴대전화에 사용하지 마세요.
+추가 개발의 사용 방법과 검증 시나리오는 `docs/FEATURES.md`에 있습니다. 위 목록은 전체 구현 기능의 설명이며, 평가표의 추가 기능 다섯 항목은 `docs/ASSESSMENT.md`대로 서버 검색 API와 Android 검색 UI를 별도로 구분했습니다. `scripts/verify_extended_android.py`는 전용 에뮬레이터와 로컬 데모 서버에서만 실행하는 회귀 검증용입니다. `--phase prepare`는 해당 에뮬레이터 앱 데이터를 초기화하고 `V2Fixture` 데모 게시글을 재생성하므로 개인 휴대전화에 사용하지 마세요.
 
 제출 전 `python scripts/audit_submission.py`를 실행하면 폴더·테스트 결과·APK/소스 일치·증빙 이미지·Git 제외 규칙·데모 자격증명 혼입 여부를 검사하고 `evidence/submission-audit.json`을 갱신합니다. 원격 push나 클라우드 배포 여부는 별도 실제 확인이 필요합니다.
 
@@ -92,6 +92,6 @@ powershell -ExecutionPolicy Bypass -File scripts/start-socket.ps1
 
 현재 폴더는 로컬 Git 저장소로 초기화되어 있습니다. Windows에서 생성 계정 차이로 `dubious ownership` 경고가 나오면 `powershell -File scripts/git.ps1 status`처럼 실행하세요. 이 래퍼는 해당 프로젝트에만 일회성 예외를 적용하며 전역 Git 설정이나 파일 접근 권한을 바꾸지 않습니다. 같은 방식으로 `add .`, `commit -m "Initial PhotoBlog project"`, `remote add origin 본인URL`, `push -u origin main`을 실행할 수 있습니다.
 
-GitHub 원격 저장소 생성·push, 본인 정보 입력과 남은 지정 앱 캡처는 후속 단계입니다. PythonAnywhere 실제 배포와 Android 동기화는 완료했습니다. 배포 예시와 절차는 `PhotoBlogServer/deploy/pythonanywhere_wsgi.py`, `docs/DEPLOY.md`에 있습니다.
+GitHub 저장소는 https://github.com/sylee21c/PhotoBlogProject 입니다. 최종 보고서에 본인 정보, GitHub URL과 지정 앱 캡처를 반영했습니다. PythonAnywhere 실제 배포와 Android 동기화도 완료했습니다. 최종 제출은 학교 과제 게시판에 이 GitHub URL을 등록하는 방식입니다. 배포 예시와 절차는 `PhotoBlogServer/deploy/pythonanywhere_wsgi.py`, `docs/DEPLOY.md`에 있습니다.
 
 기술 참고: [Django 5.2 지원 환경](https://docs.djangoproject.com/en/5.2/releases/5.2/), [Android Gradle Plugin](https://developer.android.com/build/releases/agp-9-0-0-release-notes).

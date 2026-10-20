@@ -1,0 +1,2 @@
+# Keep the rendered assessment report; exclude coverage regeneration cache.
+status.json

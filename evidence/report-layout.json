@@ -26,18 +26,22 @@
     22
   ],
   "layout_issues": [],
-  "reviewed_utc": "2026-10-20T08:22:09.695153+00:00",
+  "reviewed_utc": "2026-10-20T08:59:21.613827+00:00",
   "supplied_template_preserved": true,
   "method": "Microsoft Word native Page.EnhMetaFileBits rendered to PNG at 144 DPI",
-  "docx_sha256": "450922d2e4d5492529d7a8473ba9cd3d5cf0072cc9d9ff171209cded7ca12bd4",
-  "inline_image_occurrences": 24,
-  "unique_visible_images": 23,
-  "preserved_package_media_files": 27,
-  "all_source_media_preserved": true,
-  "user_added_captures_in_correct_sections": true,
-  "middle_dots_in_document_text": 0,
-  "remaining_submission_steps": [
-    "API response capture with browser address bar",
-    "GitHub URL and push"
-  ]
+  "docx_sha256": "41d3d4d67233d3095bf815eadc498382845ec9d09b6e71df0715f2900601ee42",
+  "api_address_bar_capture_verified": true,
+  "folder_capture_verified": true,
+  "terminal_capture_verified": true,
+  "socket_editor_capture_verified": true,
+  "server_client_counted_separately": true,
+  "additional_feature_ids": [
+    "14-1",
+    "14-2",
+    "14-3",
+    "14-4",
+    "14-5"
+  ],
+  "all_images_embedded": true,
+  "middle_dots_in_document_text": 0
 }

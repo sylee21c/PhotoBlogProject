@@ -28,8 +28,10 @@ def package():
         assert archive.testzip() is None
         for name in archive.namelist():
             assert not PurePosixPath(name).is_absolute() and '..' not in PurePosixPath(name).parts
+        reports=[p.name for p in ROOT.glob('*.docx') if not p.name.startswith('~$')]
+        assert len(reports)==1,'Expected exactly one final report DOCX'
         for required in ['PhotoBlogServer/manage.py','PhotoViewer/app/src/main/java/com/example/photoviewer/MainActivity.java',
-                         'artifacts/PhotoViewer-debug.apk','모바일웹서비스 프로젝트_공통평가 01_수행 결과 보고서.docx']:
+                         'artifacts/PhotoViewer-debug.apk',reports[0]]:
             assert 'PhotoBlogProject/'+required in archive.namelist(),required
     receipt={'file':target.name,'sha256':hashlib.sha256(target.read_bytes()).hexdigest(),
              'file_count':len(archive_files),'bytes':target.stat().st_size,'excluded_private_and_build_files':True}

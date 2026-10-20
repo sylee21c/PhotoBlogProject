@@ -1,34 +1,33 @@
 # 공통평가 항목별 구현과 증빙
 
-학번·이름과 최종 GitHub URL은 본인 정보로 작성합니다. Word의 적/부 판정 칸은 비워 둡니다.
+2026년 10월 20일 기준입니다. 최종 보고서는 저장소 최상위의 학번과 이름이 포함된 DOCX입니다. 학번, 이름, GitHub URL과 본인 완료 여부를 작성했으며 평가자의 적/부 판정 칸은 비워 두었습니다.
 
-| ID | 구현/검증 위치 | 제출 증빙과 남은 일 |
+| ID | 구현 또는 검증 | 보고서 증빙 |
 |---|---|---|
-| 1 | ROOT의 PhotoBlogServer/PhotoViewer/보고서 | 탐색기 또는 Git 저장소 구조 화면 캡처 |
-| 2 | 독립 프로젝트 폴더와 .gitignore | 본인 GitHub 원격 생성·push 후 URL 입력 |
-| 3 | 웹 `/post/new/`, API `/api_root/Post/` | 실제 작성 전·게시 후 캡처 저장. 최종 제출은 주소창 포함 재캡처 |
-| 4 | `api_engine`, `evidence/terminal-api-response.txt` | 실제 HTTP 검증 완료. 터미널에서 실행한 화면을 최종 캡처 |
-| 5 | `evidence/api-response.json` | 승인된 데모 JSON으로 Valid JSON 확인, `05-codebeautify.png` 저장 |
-| 6 | `blog/tests`, `api_engine`, `run_tests.py` | `evidence/coverage/index.html` 및 실제 캡처 |
-| 7 | `tools/socket_capture.py`, Android DiagnosticClient | `evidence/socket/*.txt`를 VS Code로 열어 최종 캡처 |
-| 8 | Django 갤러리 | `08-server-local.png` |
-| 9 | Android MainActivity 시작 | `09-client-start.png` |
-| 10 | Android 목록·이미지 다운로드 | `10-client-synced.png` |
-| 11 | UI 사진 선택·multipart 업로드 | 업로드 미리보기와 완료 화면. 하드코딩 방식은 선택하지 않음 |
-| 12 | PythonAnywhere 실제 배포와 HTTPS 검사 완료 | `12-server-cloud.png`, `evidence/cloud-verification.json`, 보고서 반영 |
-| 13 | Android 실제 클라우드 사진 동기화 완료 | `13-client-cloud-synced.png`, `evidence/cloud-android.json`, 보고서 반영 |
-| 14 | README의 추가 기능 다섯 개 | 기능 정의·구현 파일·관련 실제 화면 |
+| 1 | ROOT에 PhotoBlogServer, PhotoViewer, 보고서 배치 | 증빙 01 탐색기 화면 |
+| 2 | 공개 저장소 https://github.com/sylee21c/PhotoBlogProject | 평가표의 제출 URL과 GitHub push |
+| 3 | DRF HTML form에서 제목, 내용, 사진 입력 및 POST | 증빙 03 작성 화면과 주소창 포함 HTTP 201 응답, 게시글 ID 56 |
+| 4 | Python 검증 엔진의 실제 HTTP 요청과 응답 | 증빙 04 PowerShell의 HTTP 200 및 JSON |
+| 5 | CodeBeautify JSON Viewer에서 응답 검증 | 증빙 05 Valid JSON 화면 |
+| 6 | 서버 API 자동 테스트와 커버리지 | 증빙 06 커버리지 화면, 서버 테스트 48개, 커버리지 90.75% |
+| 7 | Android multipart 요청을 진단 Socket 서버에서 수신 | 증빙 07 수신 파일을 연 VS Code 화면 |
+| 8 | 로컬 Django 사진 목록 | 증빙 08 서버 브라우저 화면 |
+| 9 | Android 앱 시작 시 동기화 전 상태 | 증빙 09 시작 화면 |
+| 10 | 로컬 API 및 이미지 동기화 | 증빙 10 사진 3개 동기화 화면 |
+| 11 | Android UI 사진 선택과 multipart 업로드 | 증빙 11 미리보기와 업로드 완료, 상 난이도 방식 선택 |
+| 12 | PythonAnywhere HTTPS 서버 배포 | 증빙 12 클라우드 서버 화면 |
+| 13 | Android에서 PythonAnywhere API와 이미지 조회 | 증빙 13 클라우드 동기화 완료 화면 |
 
-자동화된 브라우저 캡처는 브라우저 콘텐츠를 촬영하므로 주소창은 포함하지 않습니다. 주소창/터미널/VS Code 등 공지에 특정 앱의 UI가 요구되는 증빙은 원본 실행 결과를 해당 앱에서 열어 추가 캡처하세요. 캡처를 조작해 해당 앱 화면처럼 만들지 않습니다.
+## 추가 기능 다섯 항목
 
-## 추가 기능 정의
+10/6 수업 1:16:25의 설명과 제공 양식의 지시대로 서버와 클라이언트 구현을 별도 요구사항으로 구분했습니다. 최대 다섯 항목만 추가 기능으로 제시합니다. 서버 주소와 계정 설정은 보조 설명으로 남기며 여섯 번째 항목으로 세지 않습니다.
 
-| 번호 | 기능 | 코드 |
+| ID | 구분과 기능 | 구현과 증빙 |
 |---|---|---|
-| 1 | 검색·정렬·페이지 조회 | `blog/pagination.py`, `blog/views.py`, `ApiClient::page`, `MainActivity::loadPage` |
-| 2 | 웹/앱 본인 게시글 수정·삭제와 파일 정리 | `post_edit`, `post_delete`, `blog/signals.py`, `MainActivity::editPost`, `deletePost` |
-| 3 | 오프라인 목록·사진과 즐겨찾기 복원 | `CacheStore`, `saveFeed`, `loadCachedFeed`, `favoriteKey` |
-| 4 | 사진 미리보기·입력 검증·업로드 초안 복원 | `showUpload`, `persistDraft`, `readDraft`, `blog/validation.py` |
-| 5 | 서버 연결·계정 관리·토큰 암호화 | `showSettings`, `saveServer`, `TokenVault`, `/api/me/` |
+| 14-1 | 서버 검색과 정렬 API | blog/views.py, blog/pagination.py. 검색어, 정렬, 페이지 응답 처리. 증빙 14-1 |
+| 14-2 | Android 검색과 페이지 조회 | ApiClient.page, MainActivity.loadPage. 검색과 정렬 UI, 12개에서 13개로 페이지 이어받기. 증빙 14-2 |
+| 14-3 | Android 게시글 수정과 삭제 | MainActivity.editPost, deletePost. 본인 글 수정, 삭제 확인과 취소. 증빙 14-3 |
+| 14-4 | Android 오프라인과 즐겨찾기 | CacheStore, saveFeed, loadCachedFeed. 앱 재실행 및 연결 실패 후 사진과 즐겨찾기 보존. 증빙 14-4 |
+| 14-5 | Android 사진 미리보기와 초안 | showUpload, persistDraft, readDraft. 사진 미리보기와 앱 재실행 후 초안 복원. 증빙 14-5 |
 
-테스트 결과와 실제 검증 상태는 `evidence/test-summary.json`, `evidence/android-smoke.json`, `evidence/android-extended.json`, `evidence/web-verification.json`을 기준으로 확인합니다. 추가 기능은 서로 겹치는 검색 API/UI를 별개로 세는 대신 위의 다섯 기능군으로 정리했습니다. 최종 인정 여부는 평가 기준에 따릅니다.
+원본 검증 기록은 evidence/test-summary.json, evidence/android-build.json, evidence/android-extended.json, evidence/cloud-verification.json에 있습니다. 최종 Word는 캡처를 내부에 포함하므로 다른 컴퓨터에서도 외부 파일 없이 이미지를 볼 수 있습니다. 추가 기능의 최종 인정과 점수는 평가자가 판단합니다.
